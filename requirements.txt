@@ -1,0 +1,11 @@
+jupyterlab==4.2.5
+
+langchain==0.3.7
+langchain-community==0.3.7
+langchain-openai==0.2.8
+
+python-dotenv==1.0.1
+
+# Optional but commonly useful in notebooks
+pydantic==2.9.2
+rich==13.9.4
