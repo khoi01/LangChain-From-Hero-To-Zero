@@ -1,10 +1,20 @@
-# LangChain: From Hero to Zero (RAG & Agentic AI)
+<div align="center">
+  <img src="assets/banner.png" width="100%" alt="LangChain Hero Banner">
 
-Welcome to the ultimate hands-on roadmap for mastering **LangChain**, designed to take you from foundational model calls to building production-ready **RAG (Retrieval-Augmented Generation)** and **Agentic AI** systems.
+  # LangChain: From Hero to Zero
+  ### *Mastering RAG & Agentic AI Systems*
 
-This project provides a fully containerized environment (Docker + JupyterLab) and 17+ detailed tutorial modules organized into a leveled learning path.
+  [![Python](https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+  [![Docker](https://img.shields.io/badge/Docker-Container-blue?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+  [![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-orange?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.com/)
+  [![LangChain](https://img.shields.io/badge/LangChain-Framework-green?style=for-the-badge&logo=langchain&logoColor=white)](https://www.langchain.com/)
+
+  **A comprehensive guide to building production-ready Retrieval-Augmented Generation (RAG) and Agentic AI applications.**
+
+</div>
 
 ---
+
 
 ## 🚀 Core Features
 

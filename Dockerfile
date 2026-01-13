@@ -15,7 +15,8 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # Copy project (you can also rely on volume mounts only)
 COPY src /app/src
-COPY notebooks /app/notebooks
+COPY Learning /app/Learning
+COPY Exercises /app/Exercises
 
 EXPOSE 8888
 
