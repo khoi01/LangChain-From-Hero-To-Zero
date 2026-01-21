@@ -67,6 +67,26 @@ Launch the JupyterLab and Ollama services:
 docker compose up -d
 ```
 
+### 4. Ollama Local LLM Setup
+Since the environment runs in Docker, you need to download (pull) the models into the Ollama container before first use.
+
+**Download Default Model (`llama3.2`):**
+```bash
+docker exec -it ollama ollama pull llama3.2
+```
+
+**Download Other Models:**
+You can download any model from the [Ollama Library](https://ollama.com/library):
+```bash
+docker exec -it ollama ollama pull mistral
+docker exec -it ollama ollama pull phi3
+```
+
+**Verify Downloaded Models:**
+```bash
+docker exec -it ollama ollama list
+```
+
 ---
 
 ## 📚 Course Syllabus
