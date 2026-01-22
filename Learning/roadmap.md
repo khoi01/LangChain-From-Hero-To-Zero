@@ -222,7 +222,7 @@ Exercises/03_advanced/12_embeddings_vectorstore.ipynb
 
 Use:
 
-* `OpenAIEmbeddings` or local embedding model
+* `HuggingFaceEmbeddings` (model: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`)
 * Chroma (in-memory first)
 
 ### Outcome

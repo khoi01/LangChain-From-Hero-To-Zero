@@ -7,6 +7,8 @@ langchain-openai==0.2.8
 langchain-ollama==0.2.0
 langchain-chroma==0.1.4
 langchain-text-splitters==0.3.2
+langchain-huggingface
+sentence-transformers
 
 # Production & API
 langserve==0.3.0
