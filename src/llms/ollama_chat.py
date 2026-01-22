@@ -1,4 +1,4 @@
-from langchain_community.chat_models import ChatOllama
+from langchain_ollama import ChatOllama
 from src.config import OLLAMA_BASE_URL, OLLAMA_MODEL
 
 def make_ollama_chat():
