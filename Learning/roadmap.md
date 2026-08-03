@@ -68,7 +68,7 @@ src/llms/openai_chat.py
 Notebook:
 
 ```
-Exercises/01_beginner/1.2_openai_chat.ipynb
+Exercises/Langchain/01_beginner/1.2_openai_chat.ipynb
 ```
 
 Implement:
@@ -100,7 +100,7 @@ You understand:
 Create:
 
 ```
-Exercises/01_beginner/2.2_prompt_templates.ipynb
+Exercises/Langchain/01_beginner/2.2_prompt_templates.ipynb
 ```
 
 Example:
@@ -131,7 +131,7 @@ prompt = ChatPromptTemplate.from_template(
 ### Hands-on
 
 ```
-Exercises/01_beginner/03_output_parsers.ipynb
+Exercises/Langchain/01_beginner/03_output_parsers.ipynb
 ```
 
 Chain:
@@ -163,7 +163,7 @@ prompt | llm | StrOutputParser()
 ### Hands-on
 
 ```
-Exercises/02_intermediate/2.1_lcel_basics.ipynb
+Exercises/Langchain/02_intermediate/2.1_lcel_basics.ipynb
 ```
 
 Example:
@@ -191,7 +191,7 @@ chain.invoke({"topic": "RAG"})
 ### Hands-on
 
 ```
-Exercises/02_intermediate/11_document_ingestion.ipynb
+Exercises/Langchain/02_intermediate/11_document_ingestion.ipynb
 ```
 
 Use:
@@ -217,7 +217,7 @@ Use:
 ### Hands-on
 
 ```
-Exercises/03_advanced/12_embeddings_vectorstore.ipynb
+Exercises/Langchain/03_advanced/12_embeddings_vectorstore.ipynb
 ```
 
 Use:
@@ -242,7 +242,7 @@ Use:
 ### Hands-on
 
 ```
-Exercises/03_advanced/13_basic_rag.ipynb
+Exercises/Langchain/03_advanced/13_basic_rag.ipynb
 ```
 
 Pipeline:
@@ -279,7 +279,7 @@ User Query
 ### Hands-on
 
 ```
-Exercises/03_advanced/20_query_rewriting.ipynb
+Exercises/Langchain/03_advanced/20_query_rewriting.ipynb
 ```
 
 Use LLM to:
@@ -304,7 +304,7 @@ Use LLM to:
 ### Hands-on
 
 ```
-Exercises/03_advanced/21_hybrid_retrieval.ipynb
+Exercises/Langchain/03_advanced/21_hybrid_retrieval.ipynb
 ```
 
 Combine:
@@ -330,7 +330,7 @@ Combine:
 ### Hands-on
 
 ```
-Exercises/03_advanced/30_tool_calling.ipynb
+Exercises/Langchain/03_advanced/30_tool_calling.ipynb
 ```
 
 Create tools:
@@ -357,7 +357,7 @@ Create tools:
 ### Hands-on
 
 ```
-Exercises/03_advanced/31_agent_patterns.ipynb
+Exercises/Langchain/03_advanced/31_agent_patterns.ipynb
 ```
 
 Implement:
@@ -383,7 +383,7 @@ Implement:
 ### Hands-on
 
 ```
-Exercises/03_advanced/40_evaluation.ipynb
+Exercises/Langchain/03_advanced/40_evaluation.ipynb
 ```
 
 Log:
