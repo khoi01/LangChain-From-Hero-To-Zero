@@ -9,6 +9,7 @@ langchain-chroma==0.1.4
 langchain-text-splitters==0.3.2
 langchain-huggingface
 sentence-transformers
+langgraph==0.2.53
 
 # Production & API
 langserve==0.3.0
