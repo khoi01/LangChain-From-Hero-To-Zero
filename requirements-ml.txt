@@ -1,0 +1,17 @@
+# Machine Learning track — installed with requirements.txt via Docker (see README Deployment Guide)
+numpy>=1.26
+pandas>=2.1
+matplotlib>=3.8
+seaborn>=0.13
+scikit-learn>=1.4
+scipy>=1.11
+statsmodels>=0.14
+mlxtend>=0.23
+xgboost>=2.0
+lightgbm>=4.0
+optuna>=3.5
+shap>=0.44
+umap-learn>=0.5
+hdbscan>=0.8
+torch>=2.1
+torchvision>=0.16

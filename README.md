@@ -28,10 +28,12 @@
 
 ## 📖 How to Use This Repo
 
-This repository is split into two major segments to optimize your learning experience:
+This repository is split into learning tracks, each with theory and hands-on labs:
 
-1.  **[Learning/](file:///e:/Github/LangChain-From-Hero-To-Zero/Learning/)**: This is your theoretical hub. Read the `.md` files here to understand concepts, mental models, and the "why" behind LangChain.
-2.  **[Exercises/](file:///e:/Github/LangChain-From-Hero-To-Zero/Exercises/)**: This is your hands-on laboratory. Open the corresponding `.ipynb` notebooks to execute code and training exercises.
+1.  **[Learning/](Learning/)** — Read `.md` lessons (LangChain, LangGraph, Machine Learning).
+2.  **[Exercises/](Exercises/)** — Run matching `.ipynb` notebooks.
+
+**Machine Learning track:** [Learning/MachineLearning/roadmap.md](Learning/MachineLearning/roadmap.md)
 
 **Learning Path:**
 1. Start in the `Learning` folder to read the documentation for a specific module.
@@ -42,32 +44,112 @@ This repository is split into two major segments to optimize your learning exper
 
 ## 🛠️ Deployment Guide
 
+Run the whole repo (LangChain, LangGraph, and Machine Learning notebooks) in Docker. The image installs **both** dependency files:
+
+| File | Purpose |
+|------|---------|
+| [requirements.txt](requirements.txt) | Jupyter, LangChain, RAG, FastAPI, Ollama clients |
+| [requirements-ml.txt](requirements-ml.txt) | NumPy, Pandas, scikit-learn, XGBoost, PyTorch, etc. |
+
+The [Dockerfile](Dockerfile) runs `pip install -r requirements.txt -r requirements-ml.txt` at build time. Your project folder is mounted at `/app`, so code and notebooks stay in sync with your machine.
+
 ### 1. Prerequisites
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running.
+- Clone this repository and `cd` into the repo root.
 
-### 2. Environment Setup
-Create a `.env` file in the root directory and add your credentials:
+### 2. Environment setup
+Copy the example env file and edit secrets:
+
+```bash
+cp .env.example .env
+```
+
+Minimum variables for Jupyter and LLM exercises (see [.env.example](.env.example) for the full list):
+
 ```env
-# OpenAI / Azure
+# OpenAI / Azure (LangChain track)
 OPENAI_API_KEY=your_key_here
 AZURE_OPENAI_API_KEY=your_key_here
 AZURE_OPENAI_ENDPOINT=https://your-endpoint.openai.azure.com/
 
-# Ollama (Internal Docker Networking)
+# Ollama — use the Docker service name from inside notebooks
 OLLAMA_BASE_URL=http://ollama:11434
 OLLAMA_MODEL=llama3.2
 
-# Jupyter
+# JupyterLab login token (required by docker-compose)
 JUPYTER_TOKEN=your_secure_password
 ```
 
-### 3. Run the Environment
-Launch the JupyterLab and Ollama services:
+### 3. Build and run
+
+**First time or after changing `requirements.txt` / `requirements-ml.txt` / `Dockerfile`:**
+
+```bash
+docker compose build --no-cache
+docker compose up -d
+```
+
+**Everyday start (image already built):**
+
 ```bash
 docker compose up -d
 ```
 
-### 4. Ollama Local LLM Setup
+**Open JupyterLab:** [http://localhost:8888](http://localhost:8888) — sign in with the `JUPYTER_TOKEN` from `.env`.
+
+**Check containers:**
+
+```bash
+docker compose ps
+docker compose logs -f lab
+```
+
+**Stop:**
+
+```bash
+docker compose down
+```
+
+### 4. Verify Python packages (optional)
+
+LangChain + ML stack inside the running lab container:
+
+```bash
+docker exec -it langchain-lab python -c "
+import langchain, sklearn, pandas, torch
+print('langchain', langchain.__version__)
+print('sklearn', sklearn.__version__)
+print('pandas', pandas.__version__)
+print('torch', torch.__version__)
+"
+```
+
+Quick ML smoke test: open [Exercises/MachineLearning/00_foundations/0.0_ml_sanity_check.ipynb](Exercises/MachineLearning/00_foundations/0.0_ml_sanity_check.ipynb) in Jupyter and run all cells.
+
+### 5. When you change dependencies
+
+1. Edit [requirements.txt](requirements.txt) and/or [requirements-ml.txt](requirements-ml.txt).
+2. Rebuild the image (step 3 above). A volume mount alone does **not** install new pip packages into the container.
+3. If you need a one-off install without rebuilding (not recommended long term):
+
+   ```bash
+   docker exec -it langchain-lab pip install -r /app/requirements.txt -r /app/requirements-ml.txt
+   ```
+
+### 6. Local Python (without Docker)
+
+If you prefer a venv on the host instead of Docker:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt -r requirements-ml.txt
+jupyter lab
+```
+
+Use `OLLAMA_BASE_URL=http://localhost:11434` when Ollama runs on your machine (not `http://ollama:11434`).
+
+### 7. Ollama local LLM setup
 Since the environment runs in Docker, you need to download (pull) the models into the Ollama container before first use.
 
 **Download Default Model (`llama3.2`):**
@@ -115,6 +197,15 @@ docker exec -it ollama ollama list
 - [3.5 Agents & Tools](file:///e:/Github/LangChain-From-Hero-To-Zero/Learning/Langchain/03_advanced/3.5_agents_intro.md)
 - [3.6 RAG Evaluation](file:///e:/Github/LangChain-From-Hero-To-Zero/Learning/Langchain/03_advanced/3.6_rag_evaluation.md)
 - [3.7 Production Migration](file:///e:/Github/LangChain-From-Hero-To-Zero/Learning/Langchain/03_advanced/3.7_prod_migration.md)
+
+---
+
+## 📊 Machine Learning Syllabus
+
+Full roadmap (Phase 0 + eight categories, 100+ lessons): **[Learning/MachineLearning/roadmap.md](Learning/MachineLearning/roadmap.md)**
+
+- **Start:** [0.0 Getting Started](Learning/MachineLearning/00_foundations/0.0_getting_started.md) · [Sanity check notebook](Exercises/MachineLearning/00_foundations/0.0_ml_sanity_check.ipynb)
+- **Capstones:** [Projects/MachineLearning/](Projects/MachineLearning/)
 
 ---
 
